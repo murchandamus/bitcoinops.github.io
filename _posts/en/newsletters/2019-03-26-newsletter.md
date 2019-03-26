@@ -104,10 +104,10 @@ generate a P2SH address that references their segwit details, which is
 less efficient than using bech32 but more efficient than not using
 segwit at all.  Because these are normal P2SH addresses, we can't tell
 just by looking at transaction outputs which P2SH addresses are
-something like regular P2SH multisig and which contain a nested segwit
-commitment, so we don't know the actual number of payments to
+pre-segwit P2SH outputs and which contain a nested segwit
+commitment, and so we don't know the actual number of payments to
 nested-segwit addresses.  However, when one of these outputs is spent,
-the spender does reveal any segwit details, so the above statistics
+the spender reveals whether the output was segsit. The above statistics
 sites report that currently about 37% of transactions contain at least
 one spend from a nested-segwit output.  That corresponds to about 1,400
 outputs per block on average.
@@ -181,13 +181,16 @@ answers made since our last update.*
 [libsecp256k1][libsecp256k1 repo], and [Bitcoin Improvement Proposals
 (BIPs)][bips repo].*
 
-- [Bitcoin Core #10973][] makes Bitcoin Core's built-in wallet access
-  information about the block chain through a class rather than using
-  same-process variables.  There are no user-visible changes associated
+- [Bitcoin Core #10973][] makes Bitcoin Core's built-in wallet component access
+  information about the block chain through a well-defined interface
+  rather than directly accessing functions and variables on the node component.
+  There are no user-visible changes associated
   with this update, but the merge is notable because it's the last of a
   set of foundational refactorings that should make it easy for
   future changes to run the node and the wallet/GUI in separate
-  processes (see [Bitcoin Core #10102][] for one approach to this).
+  processes (see [Bitcoin Core #10102][] for one approach to this), as
+  well as improving the modularity of the Bitcoin Core codebase and
+  allowing more focused component testing.
   Besides laying the groundwork for major changes to come, this PR is
   notable for being open for over a year and a half, receiving almost
   200 code-review comments and replies, and requiring over 150 updates
@@ -196,7 +199,7 @@ answers made since our last update.*
 
 - [Bitcoin Core #15617][] omits sending `addr` messages containing the
   IP addresses of peers the node currently has on its ban-list.  This
-  helps prevent innocent nodes from learning about peers your node found
+  prevents your node from telling other nodes about peers it found
   to be abusive.
 
 - [Bitcoin Core #13541][] modifies the `sendrawtransaction` RPC to
@@ -206,7 +209,7 @@ answers made since our last update.*
   configuration option (default: 0.1 BTC).  The new parameter takes a
   feerate and will reject the transaction if its feerate is above the
   provided value (regardless of the setting for `maxtxfee`).  If no
-  value is provided, it'll only send the transaction if its feerate is
+  value is provided, it'll only send the transaction if its fee is
   below the `maxtxfee` total.
 
 - [LND #2765][] changes how the LN node responds to channel breaches
