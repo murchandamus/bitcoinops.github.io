@@ -7,8 +7,9 @@ type: newsletter
 layout: newsletter
 lang: en
 ---
-This week's newsletter describes a draft BIP for improving transaction
-privacy by varying the fields used to implement anti fee sniping and
+This week's newsletter celebrates the lock in of the taproot soft fork,
+describes a draft BIP for improving transaction
+privacy by varying the fields used to implement anti fee sniping, and
 features an article about the challenges of mixing transaction
 replacement with payment batching.  Also included are our regular
 sections with announcements of new software releases and release
@@ -16,6 +17,25 @@ candidates, plus notable changes to popular Bitcoin infrastructure
 software.
 
 ## News
+
+- **🟩  Taproot locked in:** the [taproot][topic taproot] soft fork and
+  related changes specified in BIPs [340][bip340], [341][bip341], and
+  [342][bip342] were locked in by signaling miners last weekend.
+  Taproot will be safe to use after block 709,632, which is expected in
+  early or mid November.  The delay gives time for users to upgrade
+  their nodes to a release (such as Bitcoin Core 0.21.1) that will
+  enforce taproot's rules, ensuring that funds received to taproot
+  scripts after block 709,632 are safe even if there's a problem with
+  miners.
+
+    Developers are encouraged to start [implementing taproot][taproot
+    uses] in their software during the next several months so they can
+    be ready to take advantage of greater efficiency, privacy, and
+    fungibility as soon as the activation is complete.
+
+    Readers celebrating the lock in of taproot may also wish to read a
+    [short history][wuille taproot] of taproot's origins and history by
+    developer Pieter Wuille.
 
 - **BIP proposed for wallets to set nSequence by default on taproot transactions:**
   Chris Belcher [posted][belcher post] a draft BIP to the Bitcoin-Dev
@@ -163,3 +183,5 @@ BOLTs][bolts repo].*
 [news84 cl afs]: /en/newsletters/2020/02/12/#c-lightning-3465
 [news136 safegcd]: /en/newsletters/2021/02/17/#faster-signature-operations
 [news146 safegcd]: /en/newsletters/2021/04/28/#libsecp256k1-906
+[taproot uses]: https://en.bitcoin.it/wiki/Taproot_Uses
+[wuille taproot]: https://twitter.com/pwuille/status/1403725170993336322
