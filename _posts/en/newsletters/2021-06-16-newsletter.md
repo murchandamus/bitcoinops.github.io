@@ -153,7 +153,11 @@ BOLTs][bolts repo].*
   safegcd] and [#146][news146 safegcd].  Performance evaluations posted
   to the PR found it to speed up old block verification by about 10%.
 
-- [C-Lightning #4591][] bech32m support FIXME: Xekyo
+- [C-Lightning #4591][] adds support for parsing bech32m addresses. C-Lightning
+  will now admit creation of Pay to Taproot (P2TR) (and other v1+ native
+  segwit) outputs when `option_shutdown_anysegwit` is set. Note that P2TR
+  outputs are non-standard and `ANYONE_CAN_SPEND` on mainnet before the Taproot
+  soft fork activates in November.
 
 ## Footnotes
 
