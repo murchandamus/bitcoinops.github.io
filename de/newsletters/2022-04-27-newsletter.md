@@ -21,11 +21,10 @@ Bitcoin Infrastruktur Software.
   veröffentlichen, die Minern erlauben würde ihre Bereitschaft zu signalisieren,
   die Regeln für den in [BIP119][] vorgeschlagenen
   [OP_CHECKTEMPLATEVERIFY][topic op_checktemplateverify] (CTV) Opcode
-  durchzusetzen.
-  Sofern in einer der mehreren nächsten 2016-Block Schwierigkeitsperioden
-  mindestens 90% der Blöcke ein positives Signal zeigen würden, würden Nodes
-  die Rubins Software verwenden die CTV-Regeln ab etwa Anfang November
-  durchsetzen.
+  durchzusetzen. Sofern in einer der mehreren nächsten 2016-Block
+  Schwierigkeitsperioden mindestens 90% der Blöcke ein positives Signal zeigen
+  würden, würden Nodes die Rubins Software verwenden die CTV-Regeln ab etwa
+  Anfang November durchsetzen.
 
   Rubin beschrieb ausführlich mehrere Gründe warum er denkt dass Bitcoin-Nutzer
   CTV aktivieren können wollen würden:
@@ -79,39 +78,40 @@ Bitcoin Infrastruktur Software.
     Adressen empfangen welche dann darauf festgelegt wären später CTV zu
     verwenden.
 
-    Nachdem Towns diese Kommentare von O'Connor über die fehlende
-    Adressfunktion auf der Mailingliste [erwähnte][towns bare],
-    [antwortete][oconnor bare] mit zusätzlichen Details und deutete darauf hin,
-    dass das Weglassen der Nutzung von CTV direkt im scriptPubKey ein
-    wesentlich einfacheres und komponierbareres Design erlauben würde. Er würde
-    jedoch das breiter anwendbare `OP_TXHASH` (siehe [Newsletter #185][news185
-    txhash]) bevorzugen. Rubin [antwortete][rubin bare] mit einigen
-    Gegenargumenten.
+    Nachdem Towns die Kommentare von O'Connor über die fehlende
+    Adressnutzbarkeit auf der Mailingliste [erwähnte][towns bare],
+    [antwortete][oconnor bare] O'Connor mit zusätzlichen Details und deutete
+    darauf hin, dass das Weglassen der Nutzung von CTV direkt im scriptPubKey
+    ein wesentlich einfacheres und komponierbareres Design erlauben würde. Er
+    würde jedoch das breiter anwendbare `OP_TXHASH` (siehe [Newsletter
+    #185][news185 txhash]) bevorzugen. Rubin [antwortete][rubin bare] mit
+    einigen Gegenargumenten.
 
   - David Harding [beschrieb][harding transitory] Bedenken, dass CTV vielleicht
-    keine langfristig Nutzung erfahren würde, da Anwendungsfällen nicht materialisieren
-    oder andere Covenant-Konstruktionen populäre Anwendungen besser erfüllen
-    können würden. Trotzdem würden Konsensus-Code-Entwickler immerwährend der
-    Belastung ausgesetzt, den Code zur Interpretation von CTV zu unterstützen
-    und die Interaktionen mit anderen zukünftigen Konsensusänderungen zu
-    analysieren. Harding schlug vor CTV nur temporär für fünf Jahre zu
-    aktivieren und automatisch danach abzuschalten. Falls CTV hinreichend
-    nützlich wäre, könnten dann Bitcoin-Nutzer entscheiden die automatische
-    Abschaltung auszusetzen. Keine der Antworten befürwortete diesen Vorschlag,
-    wobei die meisten entweder die hohen Kosten oder den niedrigen Nutzen
-    kritisierten. Es wurde außerdem angemerkt, dass die zukünftige Validierung
-    der Blöcke für die CTV aktiv war trotzdem den CTV-Validierungs-Code
-    brauchen würden und somit dieser Code trotz allem weiter beibehalten werden müsste.
+    keine langfristig Nutzung erfahren würde, da Anwendungsfällen nicht
+    materialisieren oder andere Covenant-Konstruktionen populäre Anwendungen
+    besser erfüllen können würden. Trotzdem würden Konsensus-Code-Entwickler
+    immerwährend der Belastung ausgesetzt, den Code zur Interpretation von CTV
+    zu unterstützen und die Interaktionen mit anderen zukünftigen
+    Konsensusänderungen zu analysieren. Harding schlug vor CTV nur temporär für
+    fünf Jahre zu aktivieren und automatisch danach abzuschalten. Falls CTV
+    hinreichend nützlich wäre, könnten dann Bitcoin-Nutzer entscheiden die
+    automatische Abschaltung auszusetzen. Keine der Antworten befürwortete
+    diesen Vorschlag, wobei die meisten entweder die hohen Kosten oder den
+    niedrigen Nutzen kritisierten. Es wurde außerdem angemerkt, dass die
+    zukünftige Validierung der Blöcke für die CTV aktiv war trotzdem den
+    CTV-Validierungs-Code brauchen würden und somit dieser Code trotz allem
+    weiter beibehalten werden müsste.
 
-    Antoine "Darosior" Poinsot [bat][darosior apo] um Feedback zur Idee der Aktivierung
-    einer leicht abgeänderten Variante von [BIP118][] `SIGHASH_ANYPREVOUT`
-    ([APO][topic sighash_anyprevout]) statt, oder zumindest vor, CTV. Die
-    beschriebene Änderung würde APO erlauben die Funktionalität von CTV
-    nachzuahmen, würde aber für manche Anwendung höhere Kosten bedeuten. Die
-    Aktivierung von APO würde außerdem den ursprünglich vorgesehenen
-    Anwendungszweck des [Eltoo][topic eltoo]-Verfahren für das Lightning
-    Netzwerk ermöglichen, welches effizientere und sicherere Channel-Updates
-    verspricht.
+    Antoine "Darosior" Poinsot [bat][darosior apo] um Feedback zur Idee der
+    Aktivierung einer leicht abgeänderten Variante von [BIP118][]
+    `SIGHASH_ANYPREVOUT` ([APO][topic sighash_anyprevout]) statt, oder
+    zumindest vor, CTV. Die beschriebene Änderung würde APO erlauben die
+    Funktionalität von CTV nachzuahmen, würde aber für manche Anwendung höhere
+    Kosten bedeuten. Die Aktivierung von APO würde außerdem den ursprünglich
+    vorgesehenen Anwendungszweck des [Eltoo][topic eltoo]-Verfahren für das
+    Lightning Netzwerk ermöglichen, welches effizientere und sicherere
+    Channel-Updates verspricht.
 
   - James O'Beirne [schlug vor][obeirne benchmark], dass sein CTV-basiertes
     [simple vault][] Design als Maßstab verwendet werden könne um verschiedene
@@ -129,39 +129,40 @@ Bitcoin Infrastruktur Software.
 
   Der oben zusammengefassten Diskussion folgend gab Rubin [bekannt][rubin path
   forward], dass er seinen ursprünglichen Plan Aktivierungs-Software
-  herauszugeben nicht zeitnah weiterverfolgen würde. Er wird stattdessen das
-  erhaltene Feedback auswerten und später in Zusammenarbeit mit anderen
-  CTV-Unterstützern potenziell einen überarbeiteten Aktivierungsplan
-  vorstellen. Optech wird in zukünftigen Ausgaben des Newsletters weiter über
-  das Thema berichten.
+  herauszugeben nicht zeitnah weiterverfolgen würde. Er würde stattdessen das
+  erhaltene Feedback auswerten und potenziell später in Zusammenarbeit mit
+  anderen CTV-Unterstützern einen überarbeiteten Aktivierungsplan vorstellen.
+  Optech wird in zukünftigen Ausgaben des Newsletters weiter über das Thema
+  berichten.
 
 ## Ausgewählte Fragen und Antworten von Bitcoin Stack Exchange
 
 *[Bitcoin Stack Exchange][bitcoin.se] ist eine der Plattformen auf denen Optech
-Mitwirkende zuerst Antworten auf ihre Fragen suchen, oder wenn wir einige
-Augenblicke Zeit haben, anderen Neugierigen oder Verwirrten Nutzern aushelfen.
-In dieser monatlichen Rubrik stellen wir einige der populärsten Fragen und
-Antworten des letzten Monats vor.*
+Mitwirkende zuerst Antworten auf ihre Fragen suchen, oder wenn wir einen
+Augenblick Zeit haben, anderen neugierigen oder verwirrten Nutzern aushelfen.
+In dieser monatlichen Rubrik stellen wir einige populäre Fragen und Antworten
+des letzten Monats vor.*
 
 {% comment %}<!-- https://bitcoin.stackexchange.com/search?tab=votes&q=created%3a1m..%20is%3aanswer -->{% endcomment %}
 {% assign bse = "https://bitcoin.stackexchange.com/a/" %}
 
-- [How was the generator point G chosen in the secp256k1 curve?]({{bse}}113116)
-  Pieter Wuille notes that while the exact rationale behind choosing constant [generator
-  point G][se 29904] is not publicly known, an unusual property may hint of its construction.
+- [<!--How was the generator point G chosen in the secp256k1 curve?-->Wie wurde der Generatorpunkt G für secp256k1 gewählt?]({{bse}}113116)
+  Pieter Wuille beschreibt, dass die Entscheidungsgründe nicht öffentlich
+  bekannt sind, aber eine ungewöhnliche Eigenschaft des konstanten
+  [Generatorpunktes G][se 29904] auf die Konstruktionsmethode hinweisen
+  könnten.
 
-- [What is the maximum, realistic P2P message payload size?]({{bse}}113059)
-  0xb10c asks if there is a valid [P2P message][p2p messages] of `MAX_SIZE` (32MB). Pieter
-  Wuille explains that `MAX_PROTOCOL_MESSAGE_LENGTH` ([4MB][bitcoin protocol
-  4mb], increased from [2MB][Bitcoin Core #5843] as
-  [part of segwit][Bitcoin Core #8149]) is what actually restricts the size of incoming messages to
-  prevent denial-of-service attacks.
+- [<!--What is the maximum, realistic P2P message payload size-->Was ist die maximale realistische Größe der Nutzdaten einer P2P Nachricht?]({{bse}}113059)
+  0xb10c fragt ob es eine valide [P2P Nachricht][p2p messages] der größe `MAX_SIZ` (32MB) geben könnte. Pieter Wuille erklärt, dass die `MAX_PROTOCOL_MESSAGE_LENGTH` von ([4MB][bitcoin protocol 4mb] die Größe von eingehenden Nachrichten denial-of-service-Angriffe unterbindet. Die Größe wurde im [Rahmen von segwit][Bitcoin Core #8149] von [2MB][Bitcoin Core #5843] erhöht.
 
-- [Is there evidence for lack of stale blocks?]({{bse}}113413)
-  Lightlike references a historical chart of block propagation times from the
-  [KIT statistics][] website and points out [compact block relay][topic compact
-  block relay] ([BIP152][]), implemented initially in [#8068][Bitcoin Core
-  #8068], as a contributor to decreased [stale block][se 5866] frequency over time.
+- [<!--Is there evidence for lack of stale blocks?-->Gibt es Belege für die
+  geringe Zahl von erloschenen Blöcken (stale blocks)?]({{bse}}113413)
+  Lightlike weist auf ein Diagram historischer Blockverbreitungszeitspannen von
+  einer Statistikseite des [KIT][KIT statistics] hin und streicht die
+  Einführung von [compact block relay][topic compact block relay]
+  ([BIP152][]) als einen Grund für das reduzierte Auftreten von erloschenen
+  Blöcken hervor. Compact block relay wurde ursprünglich in [#8068][Bitcoin
+  Core #8068] implementiert.
 
   {:.center}
   ![Block Propagation Delay History chart](/img/posts/2022-04-block-propagation-delay.png)
